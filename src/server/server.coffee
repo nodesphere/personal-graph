@@ -3,6 +3,7 @@ express = require "express"
 http = require "http"
 lightsaber = require "lightsaber"
 # favicon = require 'serve-favicon'
+graphviz = require 'nodesphere-graphviz'
 
 { log } = lightsaber
 
@@ -14,7 +15,7 @@ app = express()
 # app.use express.logger 'dev'
 
 app.get "/", (req, res) ->
-  res.sendFile "#{APP_ROOT}/index.html"
+  res.send graphviz.html()
 
 port = process.env.PORT or 7000
 server = http.createServer app
