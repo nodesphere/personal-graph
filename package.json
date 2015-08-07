@@ -8,14 +8,17 @@
   ],
   "license": "MIT",
   "scripts": {
-    "dev": "npm run watch & npm run serve-dev",
+    "dev": "npm run watch & watch-client",
     "start": "node src/server/server.js",
-    "serve-dev": "browser-sync start --port 7000 --proxy \"localhost:${PORT:=8000}\" --files 'src/**/*'",
-    "watch": "nodemon src/server/server.js"
+    "watch": "nodemon src/server/server.js",
+    "watch-client": "nodemon --watch src --exec 'browserify' src/client/index.coffee --transform coffeeify --extension='.coffee' --outfile public/bundle.js "
   },
   "devDependencies": {
     "browser-sync": "^2.8.2",
-    "nodemon": "^1.4.0"
+    "browserify": "^11.0.1",
+    "coffeeify": "^1.1.0",
+    "nodemon": "^1.4.0",
+    "nodesphere-graphviz": "*"
   },
   "repository": {
     "type": "git",
@@ -24,8 +27,7 @@
   "dependencies": {
     "coffee-script": "^1.9.3",
     "express": "^4.13.3",
-    "nodesphere-graphviz": "*",
-    "serve-favicon": "^2.3.0",
+    "lightsaber": "^0.4.1",
     "serve-static": "^1.10.0"
   }
 }

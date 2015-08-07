@@ -1,21 +1,15 @@
 path = require 'path'
 express = require "express"
+serveStatic = require 'serve-static'
 http = require "http"
 lightsaber = require "lightsaber"
-# favicon = require 'serve-favicon'
-graphviz = require 'nodesphere-graphviz'
 
 { log } = lightsaber
 
-APP_ROOT = path.resolve __dirname, '..', 'client'
+APP_ROOT = path.resolve __dirname, '..', '..', 'public'
 
 app = express()
-# app.use favicon '.'
-# app.use express.static path.join __dirname, 'public'
-# app.use express.logger 'dev'
-
-app.get "/", (req, res) ->
-  res.send graphviz.html()
+app.use serveStatic APP_ROOT
 
 port = process.env.PORT or 7000
 server = http.createServer app

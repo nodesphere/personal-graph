@@ -1,8 +1,6 @@
 .DS_Store
-/.idea/
-/dist/*.bundle.js
-/dist/bundle.js
+/public/*.bundle.js
+/public/bundle.js
 /node_modules/
 /npm-debug.log
-/tags
 /tmp/
