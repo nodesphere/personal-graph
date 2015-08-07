@@ -1,0 +1,32 @@
+{
+  "name": "personal-graph",
+  "version": "0.0.0",
+  "description": "Single-user graph store (pre-alpha)",
+  "authors": [
+    "Harlan T Wood <code@nodesphere.org> (http://nodesphere.org/)",
+    "Jack Senechal (https://github.com/jacksenechal)"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "dev": "npm run watch & npm run serve-dev",
+    "start": "node src/server/server.js",
+    "serve-dev": "browser-sync start --port 7000 --proxy \"localhost:${PORT:=8000}\" --files 'src/**/*'",
+    "watch": "nodemon src/server/server.js"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.8.2",
+    "nodemon": "^1.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodesphere/personal-graph.git"
+  },
+  "dependencies": {
+    "coffee-script": "^1.9.3",
+    "express": "^4.13.3",
+    "lightsaber": "^0.4.1",
+    "morgan": "^1.6.1",
+    "serve-favicon": "^2.3.0",
+    "serve-static": "^1.10.0"
+  }
+}
